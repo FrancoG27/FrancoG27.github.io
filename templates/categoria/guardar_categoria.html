@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} headers {% endcomment %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'styles/forms.css' %}">
+{% endblock %}
+
+{% comment %} body {% endcomment %}
+{% comment %} navbar {% endcomment %}
+{% comment %} contenido de pag {% endcomment %}
+{% block banner %}    
+{% endblock banner %}
+{% block content %}
+    <div class="card-container-form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <h5 class="card-header">Crear Categoria</h5>
+                <div class="card-body form-flex">
+                    {{categoria_form.as_p}}
+                </div>
+                <div class="d-grid gap-2 col-8 mx-auto">
+                    <button type="submit" class="btn btn-dark">Guardar</button>
+                    <a class="btn btn-dark" href="{% url 'blog:perfil' %}">Cancelar</a>
+                </div>
+        </form>
+    </div>
+{% endblock content %}

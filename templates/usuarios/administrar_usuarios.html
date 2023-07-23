@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} headers {% endcomment %}
+{% block styles %}{% endblock %}
+
+{% comment %} body {% endcomment %}
+{% comment %} navbar {% endcomment %}
+{% comment %} contenido de pag {% endcomment %}
+{% block banner %}    
+{% endblock banner %}
+{% block content %}
+
+<div class="d-grid gap-2 col-6 mx-auto jumbotron">
+  <a href="{% url 'blog:agregar_usuarios'%}" class="btn btn-dark" type="button">Agregar Usuario</a>  
+</div>
+
+<div class="jumbotron card" style="padding: 40px; ">
+    <h2>Superusuarios agregados</h2>
+    
+    {% if superusuarios %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for superusuario in superusuarios %}
+          <div class="col">
+              <div class="card card-usuarios">
+                  <img src="{{superusuario.imagen.url}}" class="card-img-top" alt="foto de {{superusuario.primer_nombre}} {{superusuario.apellido}}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{superusuario.apellido}} {{superusuario.primer_nombre}} {{superusuario.segundo_nombre}}</h5>
+                    <p class="card-text card-edad">{{superusuario.calcular_edad}} años</p>
+                    <p class="card-text card-biografia" >{{superusuario.biografia}}</p>
+                  </div>
+                  <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <a href="{% url 'blog:actualizar_usuarios' superusuario.id %}" type="button" class="btn btn-dark">Editar</a>
+                    <a href="{% url 'blog:eliminar_usuarios' superusuario.id %}" type="button" class="btn btn-dark">Eliminar</a>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+    {% else %}
+      <h3>No hay superusuarios ademas de usted actualmente</h3>
+    {% endif %}
+</div>
+
+<div class="jumbotron card" style="padding: 40px;">
+    <h2>Usuarios Colaboradores:</h2>
+    
+    {% if colaboradores %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for colaborador in colaboradores %}
+        <div class="col">
+          <div class="card card-usuarios">
+            <img src="{{colaborador.imagen.url}}" class="card-img-top" alt="foto de {{colaborador.primer_nombre}} {{colaborador.apellido}}">
+            <div class="card-body">
+                <h5 class="card-title">{{colaborador.apellido}} {{colaborador.primer_nombre}} {{colaborador.segundo_nombre}}</h5>
+                <p class="card-text card-edad">{{colaborador.calcular_edad}} años</p>
+                <p class="card-text card-biografia">{{colaborador.biografia}}</p>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <a href="{% url 'blog:actualizar_usuarios' colaborador.id %}" type="button" class="btn btn-dark">Editar</a>
+              <a href="{% url 'blog:eliminar_usuarios' colaborador.id %}" type="button" class="btn btn-dark">Eliminar</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <h3>No hay usuarios colaboradores designados</h3>
+    {% endif %}
+    
+</div>
+<div class="jumbotron card" style="padding: 40px;">
+    <h2>Usuarios Activos:</h2>
+    
+    {% if usuarios %}
+      {% for usuarios in usuarios %}
+      
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card card-usuarios">
+                    <img src="{{usuarios.imagen.url}}" class="card-img-top" alt="foto de {{usuarios.primer_nombre}} {{usuarios.apellido}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{usuarios.apellido}} {{usuarios.primer_nombre}} {{usuarios.segundo_nombre}}</h5>
+                        <p class="card-text card-edad">{{usuarios.calcular_edad}} años</p>
+                        <p class="card-text card-biografia">{{usuarios.biografia}}</p>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                      <a href="{% url 'blog:actualizar_usuarios' usuarios.id %}" type="button" class="btn btn-dark">Editar</a>
+                      <a href="{% url 'blog:eliminar_usuarios' usuarios.id %}" type="button" class="btn btn-dark">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h3>No usuarios activos</h3>
+    {% endif %}
+</div>
+{% endblock content %}

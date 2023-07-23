@@ -1,0 +1,200 @@
+:root{
+  --bg-navbar:#9C9DA2;
+  --bg-page:#4D4D4D;
+  --bg-card:#656565;
+  --bg-input:#9C9DA2;
+  --border-button:#4b4b4b;
+  --bg-button:#4c4c4d;
+  --font-color:#dedede;
+  --font-color-hover:#2b2b2b;
+  --font-color-active:#3a3939;
+  --boton-twitter:#00ACEE;
+  --color-notificacion:#0d0d0d;
+  --bg-evento: rgb(43, 182, 232);
+  --bg-evento-gradiente: linear-gradient(90deg, rgb(83, 214, 240) 0%, rgb(97, 216, 216) 100%);
+  --acento-footer:#5eaed9;
+  --bg-base-footer:#c9cfd0;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  background: var(--bg-page);
+  font-family: 'Inter', sans-serif;
+  color:var(--font-color);
+  min-height: 100vh;
+}
+
+
+h4{
+  font-size: 1.3rem;
+}
+.font-size-parrafo{
+  font-size: 1.5rem;
+}
+.font-size-lista{
+  font-size: 1rem;
+}
+
+.navbar {
+  background-color: var(--bg-navbar);
+  padding: 12px;
+  padding-bottom: 8px;
+}
+.navbar .logo {
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.5rem var(--bg-page));
+}
+
+.navbar .nav-item .nav-link{
+  font-size:1.1rem;
+  font-weight: 600;
+  color: var(--font-color);
+}
+
+.navbar .nav-item .nav-link:hover{
+  color: var(--font-color-hover);
+}
+.navbar .nav-item .active{
+  color: var(--font-color-active);
+}
+
+.banner{
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card{
+  background-color: var(--bg-card);
+  margin: 24px auto;
+  padding: 8px;
+  border-radius: 0.375rem;
+}
+
+.color-card{
+  background-color: var(--bg-card);
+  color:var(--font-color)
+}
+
+.list-group .active{
+  background-color:var(--bg-button);
+  border-color: var(--border-button);
+}
+
+.jumbotron {
+  padding: 40px;
+}
+
+.card-usuarios{
+  width:18rem;
+}
+
+/* .spinner-border{
+  color define color de spin 
+} */
+
+.success{
+  background-color: #62ee6e;
+}
+
+.text-muted-custom{
+  --bs-text-opacity: 1;
+  color:var(--font-color);
+}
+
+.enlace-invisible {
+  text-decoration: none;
+}
+
+.card-evento{
+  font-size: 1rem;
+  margin: 24px auto;
+  padding: 8px;
+  border-radius: 0.375rem;
+  background: var(--bg-evento);
+  background: var(--bg-evento-gradiente);
+}
+.parrafo-tarjeta-usuarios{
+  height: 8rem;
+}
+
+.form-buscador{
+  margin-right:1rem;
+}
+
+.bg-page{
+  background-color:var(--bg-page);
+}
+
+.traslucido{
+  opacity: 98%;
+}
+
+.btn-twitter{
+  background-color: var(--boton-twitter);
+  padding:0px 5px;
+}
+.btn-twitter:hover{
+  background-color: var(--boton-twitter);
+}
+.meta-tweet{
+  padding:10px;
+  font-size:0.75rem;
+  font-weight: 800px;
+  text-decoration: none;
+  color:var(--font-color);
+}
+.meta-tweet:hover{
+  color:var(--font-color);
+}
+.fa-square-twitter{
+  color:var(--font-color);
+}
+.tweet-this{
+  display: inline; 
+}
+.card-edad{
+  font-size: 0.80rem;
+}
+.card-biografia{
+  max-height: 5rem;
+  overflow: auto;
+  font-size: 0.75rem;
+}
+.card-title{
+  border-bottom: 1px var(--font-color) solid;
+}
+.card-evento .card-text{
+  font-size:0.85rem;
+}
+.card-usuario-evento{
+  font-size:0.75rem;
+}
+.color-texto{
+  color:var(--font-color);
+  background-color:var(--bg-card)
+}
+.color-footer {
+  background-color: var(--bg-page);
+}
+.color-acento-footer{
+  background-color: var(--acento-footer);
+}
+.color-base-footer{
+  background-color: var(--bg-base-footer);
+}
+.notification {
+  color:var(--color-notificacion)
+}
+@media (max-width: 990px) {
+  .form-buscador{
+    margin-right:0rem;
+    margin-bottom:1rem;
+  }
+}
+

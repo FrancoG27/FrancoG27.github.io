@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_share %}
+{% comment %} headers {% endcomment %}
+{% block metas %}
+<meta property="og:url"                content="http://info2022.pythonanywhere.com/mostrar_post/{{post.id}}" />
+<meta property="og:type"               content="website" />
+<meta property="og:title"              content="{{post.titulo}}" />
+<meta property="og:description"        content="{{post.resumen}}" />
+<meta property="og:image"              content="{{post.imagen.url}}" />
+{% endblock metas %}
+{% block styles %}{% endblock %}
+
+{% comment %} body {% endcomment %}
+{% comment %} navbar {% endcomment %}
+{% block blog %} active {% endblock %}
+{% comment %} contenido de pag {% endcomment %}
+{% block content %}
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v15.0" nonce="BDc6dnBs"></script>
+{% comment %} <div class="jumbotron" style="padding: 40px;">
+    <h1>Blog</h1>
+</div> {% endcomment %}
+{% if post %}
+    <div class="card text-bg-secondary mb-3" >
+        <div class="row g-0">
+            <div class="col-md-6">
+                <img src="{{post.imagen.url}}" class="img-fluid rounded-start" alt="imagen-post">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.titulo}}</h5>
+                    <p class="card-text"><small class="text-muted-custom">{{post.fecha_creacion}}</small></p>
+                    <p class="card-text"><small class="text-muted-custom">{{post.categoria.nombre}}</small></p>
+                    <p class="card-text">{{post.texto}}</p>
+                    <!-- Your share button code -->
+                    <div class="d-flex justify-content-end align-items-start">
+                      <button type="button" class="btn fb-share-button" data-href="http://info2022.pythonanywhere.com/mostrar_post/{{post.id}}" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finfo2022.pythonanywhere.com%2Fmostrar_post%2F{{post.id}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></button>
+                      {% comment %} <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2F127.0.0.1%3A8000%2Fmostrar_post%2F{{post.id}}&layout=button&size=large&width=103&height=28&appId" width="103" height="28" style="border:none;overflow:hidden" 
+                      scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                      {% endcomment %}
+                      <button type="button" class="btn"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-lang="es" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></button>
+                      {% comment %} <button class="btn btn-twitter"><i class="fa-brands fa-square-twitter"></i>{% post_to_twitter object_or_url "{{post.id}}" %}</button> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% comment %} comentarios nativos {% endcomment %}
+    {% comment %} {% if user.is_authenticated %}
+    <form method="POST" class="row row-cols-lg-auto g-3 align-items-center">
+      {% csrf_token %}
+        <div class="col-12">
+          <label class="visually-hidden" for="inlineFormInputGroupComentar">Comentar</label>
+          <div class="input-group">
+            <div class="input-group-text">Comentar</div>
+            <input type="text" class="form-control" id="inlineFormInputGroupComentar" placeholder="comentar...">
+            {{comentario_form}}
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Comentar</button>
+        </div>
+    </form>
+    {% endif %}
+    {% if comentarios %}
+    <div class="list-group">
+        {% for c in comentarios %}
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <small class="mb-1 primary-color">{{c.autor.username}}</small>
+            <small>{{c.fecha_creacion}}</small>
+          </div>
+          <p class="mb-1">{{c.texto}}</p>
+        </div>
+        {% endfor %}
+    {% endif %} {% endcomment %}
+    {% comment %} opcion comentarios de discuss {% endcomment %}
+    {% if user.is_authenticated %}
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    /
+    /
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function () {
+        
+        var d = document,
+        s = d.createElement("script");
+        s.src = "https://metaverso9.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+    {% else %}
+      <p>Para mostrar comentar y ver los comentarios primero debes loguearte</p>
+    {% endif %}
+{% else %}
+  <h1>Error al cargar el post</h1>
+{% endif %}
+
+{% endblock content %}
+
+{% comment %} 
+ {% endcomment %}

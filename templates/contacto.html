@@ -1,0 +1,60 @@
+ {% extends 'base.html' %}
+{% comment %} headers {% endcomment %}
+{% block styles %}{% endblock %}
+
+{% comment %} body {% endcomment %}
+{% comment %} navbar {% endcomment %}
+{% block donacion %} active {% endblock %}
+
+{% comment %} contenido de pag {% endcomment %}
+{% block content %}
+    <div class="jumbotron">
+        <h2>Datos de contacto</h2>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Nombre y Apellido</h3>
+                <ul class="list-group card">
+                    <li class="list-group-item color-card">
+                        Fila 1: Nombre y Apellido 1
+                    </li>
+                    <li class="list-group-item color-card">
+                        Fila 2: Nombre y Apellido 2
+                    </li>
+                    <li class="list-group-item color-card">
+                        Fila 3: Nombre y Apellido 3
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Github</h3>
+                <ul class="list-group card">
+                    <li class="list-group-item color-card">
+                        Fila 1: Enlace Github 1
+                    </li>
+                    <li class="list-group-item color-card">
+                        Fila 2: Enlace Github 2
+                    </li>
+                    <li class="list-group-item color-card">
+                        Fila 3: Enlace Github 3
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Linkedin</h3>
+                <ul class="list-group card">
+                    <li class="list-group-item color-card">
+                        Fila 1: Enlace Linkedin 1
+                    </li>
+                    <li class="list-group-item color-card">
+                        Fila 2: Enlace Linkedin 2
+                    </li>
+                    <li class="list-group-item color-card">
+                        Fila 3: Enlace Linkedin 3
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

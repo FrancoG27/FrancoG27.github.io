@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% comment %} headers {% endcomment %}
+{% block styles %}{% endblock %}
+
+{% comment %} body {% endcomment %}
+{% comment %} navbar {% endcomment %}
+{% block contacto %} active {% endblock %}
+
+{% comment %} contenido de pag {% endcomment %}
+{% block content %}
+
+{% comment %} <div class="jumbotron" style="padding: 40px;">
+    <h1 class="text-center">Expo2023</h1>
+</div> {% endcomment %}
+<div class="jumbotron">
+    <ul class="list-group list-group-flush card">
+        <h4>Nuestra Exposición</h4>
+        <li class="list-group-item justify color-card">
+            <p class="lead font-size-parrafo">
+                ¡Bienvenido a nuestra Exposición del Metaverso!
+
+En este evento único, te sumergirás en un mundo de maravillas digitales y posibilidades infinitas. Nuestra exposición te llevará a través de una experiencia envolvente donde la realidad y la imaginación se fusionan.
+
+Explora fascinantes paisajes virtuales, interactúa con avatares sorprendentes y descubre tecnologías de vanguardia que están transformando la forma en que interactuamos con el mundo.
+
+Sumérgete en la creatividad de artistas digitales y diseñadores innovadores mientras te adentras en un universo lleno de arte, música y entretenimiento de última generación.
+
+No te pierdas la oportunidad de ser parte de esta revolucionaria Exposición del Metaverso. ¡Únete a nosotros y descubre el futuro hoy!
+            </p>
+        </li>
+    </ul>
+    <ul class="list-group list-group-flush card">
+        <h4>Horarios:</h4>
+        <li class="list-group-item justify color-card">
+            <p class="lead font-size-parrafo">
+                16:00 a 20:00hs los días Sábado 19 y Domingo 20 de Agosto
+            </p>
+        </li>
+    </ul>
+    <ul class="list-group list-group-flush card">
+        <h4>DIRECCION:</h4>
+        <li class="list-group-item justify color-card">
+            <p class="lead font-size-parrafo">
+                Av. Alvear 1650
+            </p>
+        </li>
+    </ul>
+    <ul class="list-group list-group-flush card">
+        <h4>TELEFONO:</h4>
+        <li class="list-group-item color-card">
+            <p class="lead font-size-parrafo">
+                (3624 - 000000)
+            </p>
+        </li>
+    </ul>
+    
+        <div class="d-flex justify-content-center card">
+            <h4>MAPA:</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.658840128293!2d-59.0106247491199!3d-27.444804142237257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450c78562b0eff:0x9d780747f946210a!2sSociedad%20Rural%20del%20Chaco!5e0!3m2!1sen!2sar!4v1670453529678!5m2!1sen!2sar"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+
+        <div class="jumbotron card bg-dark" >
+            <div class="row">
+                <div class="col-4 ">
+                  <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-mision-list" data-bs-toggle="list" href="#list-mision" role="tab" aria-controls="list-mision"><h2>MISION:</h2></a>
+                    <a class="list-group-item list-group-item-action" id="list-vision-list" data-bs-toggle="list" href="#list-vision" role="tab" aria-controls="list-vision"><h2>VISION:</h2></a>
+                    <a class="list-group-item list-group-item-action" id="list-objetivo-list" data-bs-toggle="list" href="#list-objetivo" role="tab" aria-controls="list-objetivo"><h2>OBJETIVO:</h2></a>
+                    <a class="list-group-item list-group-item-action" id="list-proyectos-list" data-bs-toggle="list" href="#list-proyectos" role="tab" aria-controls="list-proyectos"><h2>PROYECTOS:</h2></a>
+            
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-mision" role="tabpanel" aria-labelledby="list-mision-list">
+                      <p class="lead">
+                        Nuestra exposición de metaverso tiene como misión ofrecer a nuestros visitantes una experiencia innovadora e inmersiva que les permita explorar y comprender el potencial del metaverso. A través de exhibiciones interactivas y tecnológicamente avanzadas, buscamos fomentar la comprensión y el interés en el metaverso como una nueva dimensión digital en la que las personas pueden conectarse, colaborar, crear y vivir experiencias únicas.
+                      </p>
+                    </div>
+                    <div class="tab-pane fade" id="list-vision" role="tabpanel" aria-labelledby="list-vision-list">
+                      <p class="lead">
+                        Nuestra exposición de metaverso busca posicionarse como un referente en la promoción del conocimiento y la comprensión del metaverso. Queremos ser reconocidos como un espacio pionero en el que los visitantes pueden experimentar de primera mano las infinitas posibilidades que ofrece esta nueva dimensión digital.
+                      </p>
+                    </div>
+                    <div class="tab-pane fade" id="list-objetivo" role="tabpanel" aria-labelledby="list-objetivo-list">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                            El principal objetivo del encuentro es que a través de la interacción entre las empresas líderes del sector y aquellos visitantes que participen de la experiencia VirtualityBA, se pueda entender mucho más todas las posibilidades que van a surgir en los nuevos mundos virtuales, de los cuales sin ninguna duda, todos van a formar parte en distintos niveles.
+                            
+                          </p>
+                        </li>
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                          Vivir una realidad más inmersiva, donde tú como usuario te sientas protagonista y donde las barreras físicas, principalmente de distancia, no sean un impedimento.
+                          </p>
+                        </li>
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                            Nuestro propósito es educar, inspirar y empoderar a los visitantes para que comprendan cómo el metaverso está transformando diversas áreas, como la educación, el entretenimiento, el comercio y la colaboración. Queremos mostrar cómo el metaverso puede abrir nuevas oportunidades y posibilidades para la expresión creativa, la comunicación global y la solución de problemas complejos.
+                          </p>
+                        </li>
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                            
+                          </p>
+                        </li>
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                          
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="tab-pane fade" id="list-proyectos" role="tabpanel" aria-labelledby="list-proyectos-list">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                            Se realizará el Sábado 19 y Domingo 20 de Agosto en La Rural de Resistencia. Habrá 80 expositores y experiencias interactivas para aprender sobre realidad virtual, aumentada, NFT, criptomonedas y mucho más
+                          </p>
+                        </li>
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                            El eje de esta edición será el metaverso.
+                          </p>
+                        </li>
+                        <li class="list-group-item color-texto">
+                          <p class="lead">
+                            Se espera recibir a más de 20 mil visitantes que buscan, no solo obtener más información acerca de este nuevo entorno sino también, experimentar la sensación de estar dentro de él.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

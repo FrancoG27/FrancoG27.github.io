@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} headers {% endcomment %}
+{% block styles %}{% endblock %}
+
+{% comment %} body {% endcomment %}
+{% comment %} navbar {% endcomment %}
+{% comment %} contenido de pag {% endcomment %}
+{% block banner %}    
+{% endblock banner %}
+{% block content %}
+
+<div class="d-grid gap-2 col-6 mx-auto jumbotron">
+    <a href="{% url 'blog:agregar_categoria'%}" class="btn btn-dark" type="button">Agregar categoría</a>  
+</div>
+
+{% if categorias %}
+  {% for categoria in categorias %}
+    <div class="card text-bg-secondary mb-3" >
+        <div class="row g-0">
+            {% comment %} <div class="col-md-6">
+                <img src="{{p.imagen.url}}" class="img-fluid rounded-start" alt="imagen-post">
+            </div> {% endcomment %}
+            <div class="col">
+                <div class="card-body">
+                    <h5 class="card-title">{{categoria.nombre}}</h5>
+                    <p class="card-text"><small class="text-muted-custom">{{categoria.fecha_creacion}}</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class='col'>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <a type="button" class="btn btn-dark" href="{% url 'blog:actualizar_categoria' categoria.id %}">Editar</a>
+                    <a type="button" class="btn btn-dark" href="{% url 'blog:eliminar_categoria' categoria.id %}">Eliminar</a>
+                </div>
+              </div>
+        </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <h1>No hay categorias creadas</h1>
+{% endif %}
+
+{% endblock content %}

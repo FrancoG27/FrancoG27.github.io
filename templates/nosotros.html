@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} headers {% endcomment %}
+{% block styles %}{% endblock %}
+
+{% comment %} body {% endcomment %}
+{% comment %} navbar {% endcomment %}
+{% block nosotros %} active {% endblock %}
+
+{% comment %} contenido de pag {% endcomment %}
+{% block content %}
+
+{% comment %} <div class="jumbotron" >
+    <h1 class="text-center">Usuarios</h1>
+</div> {% endcomment %}
+
+
+<br>
+<br>
+<br>
+{% comment %} <div class="jumbotron card" style="padding: 40px;"> {% endcomment %}
+  <h2>Superusuarios:</h2>
+  
+  {% if superusuarios %}
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for superusuario in superusuarios %}
+        <div class="col">
+            <div class="card card-usuarios">
+                <img src="{{superusuario.imagen.url}}" class="card-img-top" alt="foto de {{superusuario.primer_nombre}} {{superusuario.apellido}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{superusuario.apellido}} {{superusuario.primer_nombre}} {{superusuario.segundo_nombre}}</h5>
+                    <p class="card-text overflow-auto parrafo-tarjeta-usuarios" >{{superusuario.biografia}}</p>
+                </div>
+            </div>
+        </div>
+        
+        {% endfor %}
+      </div>
+  {% else %}
+    <h3>No hay superusuarios ademas de usted actualmente</h3>
+  {% endif %}
+  <br>
+<br>
+<br>
+{% comment %} </div> {% endcomment %}
+{% comment %} 
+<div class="jumbotron card" style="padding: 40px;">  
+  {% endcomment %}
+  <h2>Usuarios Colaboradores:</h2>
+ 
+
+  {% if colaboradores %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for colaborador in colaboradores %}
+            <div class="col">
+                <div class="card card-usuarios">
+                    <img src="{{colaborador.imagen.url}}" class="card-img-top" alt="foto de {{colaborador.primer_nombre}} {{colaborador.apellido}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{colaborador.apellido}} {{colaborador.primer_nombre}} {{colaborador.segundo_nombre}}</h5>
+                        <p class="card-text">{{colaborador.calcular_edad}} años</p>
+                        <p class="card-text overflow-auto parrafo-tarjeta-usuarios">{{colaborador.biografia}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+  {% else %}
+    <h3>No hay usuarios designados</h3>
+  {% endif %}
+  
+{% comment %} </div> {% endcomment %}
+{% comment %} <div class="jumbotron card" style="padding: 40px;"> {% endcomment %}
+  <br>
+<br>
+<br>
+  <h2>Usuarios activos:</h2>
+  
+  {% if usuarios %}
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for usuarios in usuarios %}
+          <div class="col">
+              <div class="card card-usuarios">
+                  <img src="{{usuarios.imagen.url}}" class="card-img-top" alt="foto de {{usuarios.primer_nombre}} {{usuarios.apellido}}">
+                  <div class="card-body">
+                      <h5 class="card-title">{{usuarios.apellido}} {{usuarios.primer_nombre}} {{usuarios.segundo_nombre}}</h5>
+                      <p class="card-text">{{usuarios.calcular_edad}} años</p>
+                      <p class="card-text overflow-auto parrafo-tarjeta-usuarios">{{usuarios.biografia}}</p>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+  {% else %}
+    <h3>no hay usuarios activos</h3>
+  {% endif %}
+{% comment %} </div> {% endcomment %}
+<br>
+<br>
+<br>
+
+<div class="reglamentacion bg-dark border-dark p-3">
+  <h2 class="titulo-reglamentacion text-light">REGLAMENTACIÓN</h2>
+  <p class="text-light"><i class="bi bi-check"></i> Respeto y cortesía: Los usuarios deben comportarse con respeto y cortesía hacia los demás, evitando cualquier forma de discurso o comportamiento ofensivo, insultante o discriminatorio.</p>
+  <p class="text-light"><i class="bi bi-check text-success"></i> No spam: Los usuarios no deben publicar contenido promocional no solicitado o spam en la página web, incluyendo en los comentarios y en cualquier sección de participación.</p>
+  <p class="text-light"><i class="bi bi-check text-success"></i> Contenido apropiado: Los usuarios deben evitar publicar contenido inapropiado, ofensivo, ilegal o que viole los derechos de propiedad intelectual de terceros.</p>
+  <p class="text-light"><i class="bi bi-check text-success"></i> No acoso: No se permitirá ningún tipo de acoso, ya sea hacia otros usuarios, miembros del equipo o cualquier otra persona relacionada con la página web.</p>
+  <p class="text-light"><i class="bi bi-check text-success"></i> Mantener la privacidad: Los usuarios deben respetar la privacidad de los demás y no divulgar información personal o confidencial de otras personas sin su consentimiento.</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+{% endblock content %}
