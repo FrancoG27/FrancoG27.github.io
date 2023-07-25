@@ -66,51 +66,36 @@
         <img class="bg-image" src="{% static 'images/baner-facebook.jpg' %}"  alt="banner">
     </div>
 
-    <!-- <div class="container-xxl">
-        
-        <div class="d-grid gap-2 ">
+   
+    <div class="container-xxl">
+        {% block content %}
+        <div class="d-grid gap-2">
             {% if user.is_authenticated %}
-                {% if user.profile.es_colaborador %}
+                {% if user.is_staff or user.profile.es_colaborador %}
                     <a class="btn btn-dark" href="{% url 'blog:administrar_posts'%}" type="button">Administrar Noticias</a>
-                {% else %}
-                    <a href="{% url 'blog:password_change' %}" class="btn btn-dark" type="button">Cambiar Contraseña</a>
-                    <a class="btn btn-dark" href="{% url 'blog:administrar_posts'%}" type="button">Administrar Noticias</a> 
                 {% endif %}
             {% endif %}
-        </div> -->
+        </div>
 
-        <div class="container-xxl">
-   {% block content %}
-   <div class="d-grid gap-2 ">
-       {% if user.is_authenticated %}
-           {% if user.profile.es_colaborador %}
-               <a class="btn btn-dark" href="{% url 'blog:administrar_posts'%}" type="button">Administrar Noticias</a>
-           {% else %}
-               {% endif %}
-          {% endif %}
-       </div>
-
-        {% if user.is_staff %}
-            <div class="jumbotron  row g-2 traslucido">
+        <div class="jumbotron  row g-2 traslucido">
+            {% if user.is_authenticated and user.is_staff %}
                 <ul class="list-group traslucido">
                     <li class="list-group-item color-card"><strong>Usuario:</strong></li>
                     <li class="list-group-item color-card">{{user.username}}</li>
                 </ul>
-                <ul class="list-group ">
+                <ul class="list-group">
                     <li class="list-group-item color-card"><strong>Correo:</strong></li>
                     <li class="list-group-item color-card">{{user.email}}</li>
                 </ul>
-            
+                
                 <!-- Otras información para administradores... -->
-            
+                
                 <div class="d-grid gap-2">
                     <a href="{% url 'blog:password_change' %}" class="btn btn-dark" type="button">Cambiar Contraseña</a>
                     <a href="{% url 'blog:administrar_categorias' %}" class="btn btn-dark" type="button">Administrar Categorias</a>
                     <a href="{% url 'blog:administrar_usuarios' %}" class="btn btn-dark" type="button">Administrar Usuarios</a> 
                 </div>
-            </div>
-        {% else %}
-            <div class="jumbotron card row g-2">
+            {% else %}
                 <ul class="list-group">
                     <li class="list-group-item"><strong>Usuario:</strong></li>
                     <li class="list-group-item">{{user.username}}</li>
@@ -119,15 +104,15 @@
                     <li class="list-group-item"><strong>Correo:</strong></li>
                     <li class="list-group-item">{{user.email}}</li>
                 </ul>
-            
+                
                 <!-- Otras información para usuarios no administradores... -->
-            
+                
                 <div class="d-grid gap-2">
                     <a href="{% url 'blog:password_change' %}" class="btn btn-dark" type="button">Cambiar Contraseña</a>
                 </div>
+                {% endif %}
             </div>
-        {% endif %}
-
-        {% endblock %}
-    </div>
+            {% endblock %}
+        </div>
 </body>
+</html>

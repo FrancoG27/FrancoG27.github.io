@@ -15,7 +15,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-    """ se muestra la pantalla de inicio con post y eventos, además contiene la logica de busqueda y filtros """
+    """ se muestra la pantalla de inicio con post, además contiene la logica de busqueda y filtros """
     cat= Categoria.objects.all()
 
     ordenar = request.GET.get('ordenar')
